@@ -118,7 +118,7 @@ resource dotNetBackend 'Microsoft.Web/sites@2022-09-01' = {
     properties: {
       APPINSIGHTS_INSTRUMENTATIONKEY: appInsights.properties.InstrumentationKey
       AzureWebJobsDisableHomepage: 'true'
-      ConnectionStrings__Database: 'Server=tcp:${dbServer.name}.${environment().suffixes.sqlServerHostname};Authentication=Active Directory Managed Identity; Database=${dbName};"'
+      ConnectionStrings__Database: 'Server=tcp:${dbServer.name}.${environment().suffixes.sqlServerHostname};Authentication=Active Directory Managed Identity; Database=${dbName};'
     }
   }
 }
