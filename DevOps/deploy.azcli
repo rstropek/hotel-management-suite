@@ -1,0 +1,13 @@
+# az login --use-device-code
+# az account set --subscription "b33f0285-db27-4896-ac5c-df22004b0aba"
+
+LOCATION=westeurope
+ENVIRONMENT=dev
+
+az deployment group create \
+    --resource-group hms \
+    --name Deployment-$ENVIRONMENT-$(date +"%Y-%m-%dT%H-%M-%S") \
+    --template-file infrastructure.bicep \
+    --parameters \
+        location=$LOCATION \
+        environment=$ENVIRONMENT
