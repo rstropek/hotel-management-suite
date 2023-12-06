@@ -10,4 +10,4 @@ az deployment group create \
     --template-file infrastructure.bicep \
     --parameters \
         location=$LOCATION \
-        environment=$ENVIRONMENT
+        env=$ENVIRONMENT
