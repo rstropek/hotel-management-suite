@@ -61,7 +61,7 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   tags: union(tags, telemetryTags)
   properties: {
     features: {
-      disableLocalAuth: true
+      disableLocalAuth: false
     }
   }
 }
