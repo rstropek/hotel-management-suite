@@ -42,6 +42,7 @@ jobs:
             - azure
         env:
             dotnet-version: '8.0'
+            webappPackagePath: './Backend/out'
         steps:
           - name: 'Checkout'
             uses: actions/checkout@v4
@@ -56,6 +57,14 @@ jobs:
             working-directory: ./Backend
             
           - name: 'Build'
-            run: dotnet build --configuration Release
             working-directory: ./Backend
-      
+            run: |
+                dotnet restore
+                dotnet build --configuration Release
+                dotnet publish -c Release --property:PublishDir='${{ env.webappPackagePath }}' 
+
+          - name: 'Run Azure webapp deploy action using publish profile credentials'
+            uses: azure/webapps-deploy@v2
+            with: 
+                app-name: 'app-hms-dev-westeurope-001'
+                package: '${{ env.webappPackagePath }}'
