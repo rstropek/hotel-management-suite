@@ -1,6 +1,7 @@
 using Microsoft.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddApplicationInsightsTelemetry();
 var app = builder.Build();
 app.UseHttpsRedirection();
 
