@@ -85,7 +85,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   tags: tags
   sku: {
     name: 'P0v3'
-    capacity: 1
+    capacity: 2
   }
   properties: {
     reserved: true // Linux App service plan 
